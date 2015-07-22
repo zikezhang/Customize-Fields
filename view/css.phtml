@@ -1,0 +1,18 @@
+<div class="postbox closed">
+    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+    <h3><?php _e('ADMIN CSS', 'custom-field-template'); ?></h3>
+    <div class="inside">
+        <form method="post">
+            <table class="form-table" style="margin-bottom:5px;">
+                <tbody>
+                <tr><td>
+                        <p><textarea name="custom_field_template_css" class="large-text resizable" id="custom_field_template_css" rows="10" cols="80"><?php if ( isset($options['css']) ) echo htmlspecialchars(stripcslashes($options['css'])); ?></textarea></p>
+                    </td></tr>
+                <tr><td>
+                        <p><input type="submit" name="custom_field_template_css_submit" value="<?php _e('Update Options &raquo;', 'custom-field-template'); ?>" class="button-primary" /></p>
+                    </td></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

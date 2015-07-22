@@ -1,0 +1,19 @@
+<div class="postbox closed">
+    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+    <h3><?php _e('Rebuild Value Counts', 'custom-field-template'); ?></h3>
+    <div class="inside">
+        <form method="post" onsubmit="return confirm('<?php _e('Are you sure to rebuild all value counts?', 'custom-field-template'); ?>');">
+            <table class="form-table" style="margin-bottom:5px;">
+                <tbody>
+                <tr><td>
+                        <p><?php _e('Value Counts are used for temporarily saving how many values in each key. Set `valueCount = true` into fields.', 'custom-field-template'); ?></p>
+                        <p>global $custom_field_template;<br />
+                            $value_count = $custom_field_template->get_value_count();<br />
+                            echo $value_count[$meta_key][$meta_value];</p>
+                        <p><input type="submit" name="custom_field_template_rebuild_value_counts_submit" value="<?php _e('Rebuild Value Counts &raquo;', 'custom-field-template'); ?>" class="button-primary" /></p>
+                    </td></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

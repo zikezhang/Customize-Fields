@@ -1,0 +1,32 @@
+<div class="postbox closed">
+    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+    <h3><?php _e('PHP CODE (Experimental Option)', 'custom-field-template'); ?></h3>
+    <div class="inside">
+        <form method="post" onsubmit="return confirm('<?php _e('Are you sure to save PHP codes? Please do it at your own risk.', 'custom-field-template'); ?>');">
+            <dl><dt><?php _e('For `text` and `textarea`, you must set $value as an string.', 'custom-field-template'); ?><br />
+                    ex. `text` and `textarea`:</dt><dd>$value = 'Yes we can.';</dd></dl>
+            <dl><dt><?php _e('For `checkbox`, `radio`, and `select`, you must set $values as an array.', 'custom-field-template'); ?><br />
+                    ex. `radio` and `select`:</dt><dd>$values = array('dog', 'cat', 'monkey'); $default = 'cat';</dd>
+                <dt>ex. `checkbox`:</dt><dd>$values = array('dog', 'cat', 'monkey'); $defaults = array('dog', 'cat');</dd></dl>
+            <table class="form-table" style="margin-bottom:5px;">
+                <tbody>
+                <?php
+                if ( isset($options['php']) ) $count = count($options['php']);
+                else $count = 0;
+                for ($i=0;$i<$count+1;$i++) :
+                    ?>
+                    <tr><th><strong>CODE #<?php echo $i; ?></strong></th></tr>
+                    <tr><td>
+                            <p><textarea name="custom_field_template_php[]" class="large-text resizable" rows="10" cols="80"><?php if ( isset($options['php'][$i]) ) echo htmlspecialchars(stripcslashes($options['php'][$i])); ?></textarea></p>
+                        </td></tr>
+                    <?php
+                endfor;
+                ?>
+                <tr><td>
+                        <p><input type="submit" name="custom_field_template_php_submit" value="<?php _e('Update Options &raquo;', 'custom-field-template'); ?>" class="button-primary" /></p>
+                    </td></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

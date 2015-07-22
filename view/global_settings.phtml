@@ -1,0 +1,115 @@
+<div class="postbox closed">
+    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+    <h3><?php _e('Global Settings', 'custom-field-template'); ?></h3>
+    <div class="inside">
+        <form method="post">
+            <table class="form-table" style="margin-bottom:5px;">
+                <tbody>
+                <?php
+                /*
+<tr><td>
+<p><label for="custom_field_template_use_multiple_insert"><?php _e('In case that you would like to insert multiple images at once in use of the custom field media buttons', 'custom-field-template'); ?></label>:<br />
+<input type="checkbox" name="custom_field_template_use_multiple_insert" id="custom_field_template_use_multiple_insert" value="1" <?php if ($options['custom_field_template_use_multiple_insert']) { echo 'checked="checked"'; } ?> /> <?php _e('Use multiple image inset', 'custom-field-template'); ?><br /><span style="color:#FF0000; font-weight:bold;"><?php _e('Caution:', 'custom-field-teplate'); ?> <?php _e('You need to edit `wp-admin/includes/media.php`. Delete or comment out the code in the function media_send_to_editor.', 'custom-field-template'); ?></span></p>
+</td>
+</tr>
+*/
+                ?>
+                <tr><td>
+                        <p><label for="custom_field_template_replace_keys_by_labels"><?php _e('In case that you would like to replace custom keys by labels if `label` is set', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_replace_keys_by_labels" id="custom_field_template_replace_keys_by_labels" value="1" <?php if ( !empty($options['custom_field_template_replace_keys_by_labels']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use labels in place of custom keys', 'custom-field-template'); ?></label></p>
+                    </td></tr>
+                <tr><td>
+                        <p><label for="custom_field_template_use_wpautop"><?php _e('In case that you would like to add p and br tags in textareas automatically', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_use_wpautop" id="custom_field_template_use_wpautop" value="1" <?php if ( !empty($options['custom_field_template_use_wpautop']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use wpautop function', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_use_autosave"><?php _e('In case that you would like to save values automatically in switching templates', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_use_autosave" id="custom_field_template_use_autosave" value="1" <?php if ( !empty($options['custom_field_template_use_autosave']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use the auto save in switching templates', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_use_disable_button"><?php _e('In case that you would like to disable input fields of the custom field template temporarily', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_use_disable_button" id="custom_field_template_use_disable_button" value="1" <?php if ( !empty($options['custom_field_template_use_disable_button']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use the `Disable` button. The default custom fields will be superseded.', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_disable_initialize_button"><?php _e('In case that you would like to forbid to use the initialize button.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_disable_initialize_button" id="custom_field_template_disable_initialize_button" value="1" <?php if ( !empty($options['custom_field_template_disable_initialize_button']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Disable the initialize button', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_disable_save_button"><?php _e('In case that you would like to forbid to use the save button.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_disable_save_button" id="custom_field_template_disable_save_button" value="1" <?php if ( !empty($options['custom_field_template_disable_save_button']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Disable the save button', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_disable_default_custom_fields"><?php _e('In case that you would like to forbid to use the default custom fields.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_disable_default_custom_fields" id="custom_field_template_disable_default_custom_fields" value="1" <?php if ( !empty($options['custom_field_template_disable_default_custom_fields']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Disable the default custom fields', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_disable_quick_edit"><?php _e('In case that you would like to forbid to use the quick edit.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_disable_quick_edit" id="custom_field_template_disable_quick_edit" value="1" <?php if ( !empty($options['custom_field_template_disable_quick_edit']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Disable the quick edit', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_disable_custom_field_column"><?php _e('In case that you would like to forbid to display the custom field column on the edit post list page.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_disable_custom_field_column" id="custom_field_template_disable_custom_field_column" value="1" <?php if ( !empty($options['custom_field_template_disable_custom_field_column']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Disable the custom field column (The quick edit also does not work.)', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_replace_the_title"><?php _e('In case that you would like to replace the box title with the template title.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_replace_the_title" id="custom_field_template_replace_the_title" value="1" <?php if ( !empty($options['custom_field_template_replace_the_title']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Replace the box title', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_deploy_box"><?php _e('In case that you would like to deploy the box in each template.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_deploy_box" id="custom_field_template_deploy_box" value="1" <?php if ( !empty($options['custom_field_template_deploy_box']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Deploy the box in each template', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_widget_shortcode"><?php _e('In case that you would like to use the shortcode in the widget.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_widget_shortcode" id="custom_field_template_widget_shortcode" value="1" <?php if ( !empty($options['custom_field_template_widget_shortcode']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use the shortcode in the widget', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_excerpt_shortcode"><?php _e('In case that you would like to use the shortcode in the excerpt.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_excerpt_shortcode" id="custom_field_template_excerpt_shortcode" value="1" <?php if ( !empty($options['custom_field_template_excerpt_shortcode']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use the shortcode in the excerpt', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_use_validation"><?php _e('In case that you would like to use the jQuery validation.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_use_validation" id="custom_field_template_use_validation" value="1" <?php if ( !empty($options['custom_field_template_use_validation']) ) { echo 'checked="checked"'; } ?> /> <?php _e('Use the jQuery validation', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <?php
+                        if ( !isset($options['custom_field_template_before_list']) ) $options['custom_field_template_before_list'] = '<ul>';
+                        if ( !isset($options['custom_field_template_after_list']) ) $options['custom_field_template_after_list'] = '</ul>';
+                        if ( !isset($options['custom_field_template_before_value']) ) $options['custom_field_template_before_value'] = '<li>';
+                        if ( !isset($options['custom_field_template_after_value']) ) $options['custom_field_template_after_value'] = '</li>';
+                        ?>
+                        <p><label for="custom_field_template_before_list"><?php _e('Text to place before every list which is called by the cft shortcode', 'custom-field-template'); ?></label>:<br />
+                            <input type="text" name="custom_field_template_before_list" id="custom_field_template_before_list" value="<?php echo esc_attr(stripcslashes($options['custom_field_template_before_list'])); ?>" /></p>
+                        <p><label for="custom_field_template_after_list"><?php _e('Text to place after every list which is called by the cft shortcode', 'custom-field-template'); ?></label>:<br />
+                            <input type="text" name="custom_field_template_after_list" id="custom_field_template_after_list" value="<?php echo esc_attr(stripcslashes($options['custom_field_template_after_list'])); ?>" /></p>
+                        <p><label for="custom_field_template_before_value"><?php _e('Text to place before every value which is called by the cft shortcode', 'custom-field-template'); ?></label>:<br />
+                            <input type="text" name="custom_field_template_before_value" id="custom_field_template_before_value" value="<?php echo esc_attr(stripcslashes($options['custom_field_template_before_value'])); ?>" /></p>
+                        <p><label for="custom_field_template_after_value"><?php _e('Text to place after every value which is called by the cft shortcode', 'custom-field-template'); ?></label>:<br />
+                            <input type="text" name="custom_field_template_after_value" id="custom_field_template_after_value" value="<?php echo esc_attr(stripcslashes($options['custom_field_template_after_value'])); ?>" /></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><label for="custom_field_template_disable_ad"><?php _e('In case that you would like to hide the advertisement right column.', 'custom-field-template'); ?>:<br />
+                                <input type="checkbox" name="custom_field_template_disable_ad" id="custom_field_template_disable_ad" value="1" <?php if ( !empty($options['custom_field_template_disable_ad']) ) { echo 'checked="checked"'; } ?> /> <?php _e('I want to use a wider screen.', 'custom-field-template'); ?></label></p>
+                    </td>
+                </tr>
+                <tr><td>
+                        <p><input type="submit" name="custom_field_template_global_settings_submit" value="<?php _e('Update Options &raquo;', 'custom-field-template'); ?>" class="button-primary" /></p>
+                    </td></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

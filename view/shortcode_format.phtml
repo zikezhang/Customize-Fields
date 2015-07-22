@@ -1,0 +1,30 @@
+<div class="postbox closed">
+    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+    <h3><?php _e('[cft] and [cftsearch] Shortcode Format', 'custom-field-template'); ?></h3>
+    <div class="inside">
+        <form method="post">
+            <p><?php _e('For [cft], [key] will be converted into the value of [key].', 'custom-field-template'); ?><br />
+                <?php _e('For [cftsearch], [key] will be converted into the input field.', 'custom-field-template'); ?></p>
+            <table class="form-table" style="margin-bottom:5px;">
+                <tbody>
+                <?php
+                if ( isset($options['shortcode_format']) ) $count = count($options['shortcode_format']);
+                else $count = 0;
+                for ($i=0;$i<$count+1;$i++) :
+                    ?>
+                    <tr><th><strong>FORMAT #<?php echo $i; ?></strong></th></tr>
+                    <tr><td>
+                            <p><textarea name="custom_field_template_shortcode_format[<?php echo $i; ?>]" class="large-text resizable" rows="10" cols="80"><?php if ( isset($options['shortcode_format'][$i]) ) echo htmlspecialchars(stripcslashes($options['shortcode_format'][$i])); ?></textarea></p>
+                            <p><label><input type="checkbox" name="custom_field_template_shortcode_format_use_php[<?php echo $i; ?>]" value="1" <?php if ( !empty($options['shortcode_format_use_php'][$i]) ) { echo ' checked="checked"'; } ?> /> <?php _e('Use PHP', 'custom-field-template'); ?></label></p>
+                        </td></tr>
+                    <?php
+                endfor;
+                ?>
+                <tr><td>
+                        <p><input type="submit" name="custom_field_template_shortcode_format_submit" value="<?php _e('Update Options &raquo;', 'custom-field-template'); ?>" class="button-primary" /></p>
+                    </td></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

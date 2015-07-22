@@ -1,0 +1,102 @@
+<style type="text/css">
+    div.grippie {
+        background:#EEEEEE url(<?php echo $this->plugin_dir . '/js/'; ?>grippie.png) no-repeat scroll center 2px;
+        border-color:#DDDDDD;
+        border-style:solid;
+        border-width:0pt 1px 1px;
+        cursor:s-resize;
+        height:9px;
+        overflow:hidden;
+    }
+    .resizable-textarea textarea {
+        display:block;
+        margin-bottom:0pt;
+    }
+</style>
+<script type="text/javascript">
+    jQuery(document).ready(function() {
+        jQuery('textarea.resizable:not(.processed)').TextAreaResizer();
+    });
+</script>
+
+<?php
+/*$viewmodel = new customFieldTemplateModel();
+$options = $viewmodel->get_custom_field_template_data();*/
+if ( !empty($message) ) : ?>
+    <div id="message" class="updated"><p><?php echo $message; ?></p></div>
+<?php endif; ?>
+<?php if ( !empty($errormessage) ) : ?>
+    <div id="errormessage" class="error"><p><?php echo $errormessage; ?></p></div>
+<?php endif; ?>
+<div class="wrap">
+    <div id="icon-plugins" class="icon32"><br/></div>
+    <h2><?php _e('Custom Field Template', 'custom-field-template'); ?></h2>
+
+    <br class="clear"/>
+
+    <div id="poststuff" style="position: relative; margin-top:10px;">
+        <?php if ( empty($options['custom_field_template_disable_ad']) ) {
+            echo '<div style="width:75%; float:left;">';
+        }
+
+
+        foreach ($submitButtonArray as $setableOption) {
+                require_once($setableOption.'.phtml');
+        } ;?>
+        </div>
+
+        <?php if ( empty($options['custom_field_template_disable_ad']) ) : ?>
+            <div style="width:24%; float:right;">
+                <div class="postbox" style="min-width:200px;">
+                    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+                    <h3><?php _e('Donation', 'custom-field-template'); ?></h3>
+                    <div class="inside">
+                        <p><?php _e('If you liked this plugin, please make a donation via paypal! Any amount is welcome. Your support is much appreciated.', 'custom-field-template'); ?></p>
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="text-align:center;" target="_blank">
+                            <input type="hidden" name="cmd" value="_s-xclick">
+                            <input type="hidden" name="hosted_button_id" value="WN7Y2442JPRU6">
+                            <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0" name="submit" alt="PayPal">
+                        </form>
+                    </div>
+                </div>
+
+                <?php
+                if ( $locale == 'ja' ) :
+                    ?>
+                    <div class="postbox" style="min-width:200px;">
+                        <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+                        <h3><?php _e('Custom Field Template Manual', 'custom-field-template'); ?></h3>
+                        <div class="inside">
+                            <p><?php _e('Do you have any trouble with the plugin setup? Please visit the following manual site.', 'custom-field-template'); ?></p>
+                            <p style="text-align:center"><a href="http://ja.wpcft.com/" target="_blank"><?php _e('Custom Field Template Manual', 'custom-field-template'); ?></a></p>
+                        </div>
+                    </div>
+
+                    <div class="postbox" style="min-width:200px;">
+                        <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+                        <h3><?php _e('CMS x WP', 'custom-field-template'); ?></h3>
+                        <div class="inside">
+                            <p><?php _e('There are much more plugins which are useful for developing business websites such as membership sites or ec sites. You could totally treat WordPress as CMS by use of CMS x WP plugins.', 'custom-field-template'); ?></p>
+                            <p style="text-align:center"><a href="http://www.cmswp.jp/" target="_blank"><img src="<?php echo get_option('siteurl') . '/' . PLUGINDIR . '/' . $plugin_dir . '/js/'; ?>cmswp.jpg" width="125" height="125" alt="CMSxWP" /></a><br /><a href="http://www.cmswp.jp/" target="_blank"><?php _e('WordPress plugin sales site: CMS x WP', 'custom-field-template'); ?></a></p>
+                        </div>
+                    </div>
+                    <?php
+                endif;
+                ?>
+            </div>
+        <?php endif; ?>
+
+        <script type="text/javascript">
+            // <![CDATA[
+            <?php if ( version_compare( substr($wp_version, 0, 3), '2.7', '<' ) ) { ?>
+            jQuery('.postbox h3').prepend('<a class="togbox">+</a> ');
+            <?php } ?>
+            jQuery('.postbox div.handlediv').click( function() { jQuery(jQuery(this).parent().get(0)).toggleClass('closed'); } );
+            jQuery('.postbox h3').click( function() { jQuery(jQuery(this).parent().get(0)).toggleClass('closed'); } );
+            jQuery('.postbox.close-me').each(function(){
+                jQuery(this).addClass("closed");
+            });
+            //-->
+        </script>
+
+    </div>

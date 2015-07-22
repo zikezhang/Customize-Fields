@@ -1,0 +1,16 @@
+<div class="postbox closed">
+    <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
+    <h3><?php _e('Import Options', 'custom-field-template'); ?></h3>
+    <div class="inside">
+        <form method="post" enctype="multipart/form-data" onsubmit="return confirm('<?php _e('Are you sure to import options? Options you set will be overwritten.', 'custom-field-template'); ?>');">
+            <table class="form-table" style="margin-bottom:5px;">
+                <tbody>
+                <tr><td>
+                        <p><input type="file" name="cftfile" /> <input type="submit" name="custom_field_template_import_options_submit" value="<?php _e('Import Options &raquo;', 'custom-field-template'); ?>" class="button-primary" /></p>
+                    </td></tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
+

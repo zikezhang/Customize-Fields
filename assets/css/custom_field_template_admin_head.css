@@ -1,0 +1,6 @@
+div.cft_list p.key		{ font-weight:bold; margin: 0; }
+div.cft_list p.value	{ margin: 0 0 0 10px; }
+.cft-actions			{ visibility: hidden; padding: 2px 0 0; }
+tr:hover .cft-actions	{ visibility: visible; }
+.inline-edit-row fieldset label { display:inline; }
+label.error				{ color:#FF0000; }
