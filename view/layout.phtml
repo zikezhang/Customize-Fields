@@ -52,37 +52,16 @@ if ( !empty($message) ) : ?>
                     <h3><?php _e('Donation', 'custom-field-template'); ?></h3>
                     <div class="inside">
                         <p><?php _e('If you liked this plugin, please make a donation via paypal! Any amount is welcome. Your support is much appreciated.', 'custom-field-template'); ?></p>
-                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" style="text-align:center;" target="_blank">
+                        <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
                             <input type="hidden" name="cmd" value="_s-xclick">
-                            <input type="hidden" name="hosted_button_id" value="WN7Y2442JPRU6">
-                            <input type="image" src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG_global.gif" border="0" name="submit" alt="PayPal">
+                            <input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+">
+                            <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+                            <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
                         </form>
+
                     </div>
                 </div>
-
-                <?php
-                if ( $locale == 'ja' ) :
-                    ?>
-                    <div class="postbox" style="min-width:200px;">
-                        <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
-                        <h3><?php _e('Custom Field Template Manual', 'custom-field-template'); ?></h3>
-                        <div class="inside">
-                            <p><?php _e('Do you have any trouble with the plugin setup? Please visit the following manual site.', 'custom-field-template'); ?></p>
-                            <p style="text-align:center"><a href="http://ja.wpcft.com/" target="_blank"><?php _e('Custom Field Template Manual', 'custom-field-template'); ?></a></p>
-                        </div>
-                    </div>
-
-                    <div class="postbox" style="min-width:200px;">
-                        <div class="handlediv" title="<?php _e('Click to toggle', 'custom-field-template'); ?>"><br /></div>
-                        <h3><?php _e('CMS x WP', 'custom-field-template'); ?></h3>
-                        <div class="inside">
-                            <p><?php _e('There are much more plugins which are useful for developing business websites such as membership sites or ec sites. You could totally treat WordPress as CMS by use of CMS x WP plugins.', 'custom-field-template'); ?></p>
-                            <p style="text-align:center"><a href="http://www.cmswp.jp/" target="_blank"><img src="<?php echo get_option('siteurl') . '/' . PLUGINDIR . '/' . $plugin_dir . '/js/'; ?>cmswp.jpg" width="125" height="125" alt="CMSxWP" /></a><br /><a href="http://www.cmswp.jp/" target="_blank"><?php _e('WordPress plugin sales site: CMS x WP', 'custom-field-template'); ?></a></p>
-                        </div>
-                    </div>
-                    <?php
-                endif;
-                ?>
             </div>
         <?php endif; ?>
 
