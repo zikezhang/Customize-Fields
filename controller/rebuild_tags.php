@@ -1,3 +1,5 @@
 <?php
 /* todo $options = $this->options;*/
-$message = __('Tags rebuilt.', 'custom-field-template');
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    $message = __('Tags rebuilt.', $base);
+}

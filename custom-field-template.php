@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 require_once('custom_field_template_init.php');
 require_once('bootstrap.php');
 require_once('custom_field_template_model.php');
-
+require_once('vendor/CSS-Parser/parser.php');
 
 function customFieldTemplate ()
 {

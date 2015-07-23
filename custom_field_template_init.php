@@ -817,7 +817,7 @@ class customFieldTemplateInit
     function custom_field_template_admin() {
         global $wp_version;
         $locale = get_locale();
-
+        $base = $this->base;
         $options = $this->model->get_custom_field_template_data();
         //$controllerUrl =   esc_url( trailingslashit( plugins_url( '/controller/', $this->parent->file ) ) );
         require_once( 'custom_field_template_router.php' );
