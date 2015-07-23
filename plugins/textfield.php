@@ -1,5 +1,5 @@
 <?php
-function make_textfield( $name, $sid, $data, $post_id ) {
+function customize_fields_make_textfield( $name, $sid, $data, $post_id ) {
     $cftnum = $size = $default = $hideKey = $label = $code = $class = $style = $before = $after = $maxlength = $multipleButton = $date = $dateFirstDayOfWeek = $dateFormat = $startDate = $endDate = $readOnly = $onclick = $ondblclick = $onkeydown = $onkeypress = $onkeyup = $onmousedown = $onmouseup = $onmouseover = $onmouseout = $onmousemove = $onfocus = $onblur = $onchange = $onselect = '';
     $hide = $addfield = $out = $out_key = $out_value = '';
     extract($data);
@@ -89,4 +89,7 @@ function make_textfield( $name, $sid, $data, $post_id ) {
     return array($out, $out_key, $out_value);
 }
 
-list($out_all,$out_key,$out_value) = make_textfield( $title, $parentSN, $data, $post_id );
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    list($out_all,$out_key,$out_value) = customize_fields_make_textfield( $title, $parentSN, $data, $post_id );
+}
+

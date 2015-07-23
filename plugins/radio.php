@@ -1,5 +1,5 @@
 <?php
-function make_radio( $name, $sid, $data, $post_id ) {
+function customize_fields_make_radio( $name, $sid, $data, $post_id ) {
     $cftnum = $values = $valueLabels = $clearButton = $default = $hideKey = $label = $code = $class = $style = $before = $after = $multipleButton = $onclick = $ondblclick = $onkeydown = $onkeypress = $onkeyup = $onmousedown = $onmouseup = $onmouseover = $onmouseout = $onmousemove = $onfocus = $onblur = $onchange = $onselect = '';
     $hide = $addfield = $out = $out_key = $out_value = '';
     extract($data);
@@ -93,6 +93,9 @@ function make_radio( $name, $sid, $data, $post_id ) {
     return array($out, $out_key, $out_value);
 }
 
-$data['values'] = explode( '#', $data['value'] );
-if ( isset($data['valueLabel']) ) $data['valueLabels'] = explode( '#', $data['valueLabel'] );
-list($out_all,$out_key,$out_value) = make_radio( $title, $parentSN, $data, $post_id );
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    $data['values'] = explode( '#', $data['value'] );
+    if ( isset($data['valueLabel']) ) $data['valueLabels'] = explode( '#', $data['valueLabel'] );
+    list($out_all,$out_key,$out_value) = make_radio( $title, $parentSN, $data, $post_id );
+}
+

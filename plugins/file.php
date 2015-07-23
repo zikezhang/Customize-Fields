@@ -1,5 +1,5 @@
 <?php
-function make_file( $name, $sid, $data, $post_id ) {
+function customize_fields_make_file( $name, $sid, $data, $post_id ) {
     $cftnum = $size = $hideKey = $label = $class = $style = $before = $after = $multipleButton = $relation = $mediaLibrary = $mediaPicker = '';
     $hide = $addfield = $out = $out_key = $out_value = $picker = $inside_fieldset = '';
     extract($data);
@@ -81,4 +81,6 @@ function make_file( $name, $sid, $data, $post_id ) {
 
     return array($out, $out_key, $out_value);
 }
-list($out_all,$out_key,$out_value) = make_file( $title, $parentSN, $data, $post_id );
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    list($out_all,$out_key,$out_value) = customize_fields_make_file( $title, $parentSN, $data, $post_id );
+}

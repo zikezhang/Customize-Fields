@@ -1,5 +1,5 @@
 <?php
-function make_checkbox( $name, $sid, $data, $post_id ) {
+function customize_fields_make_checkbox( $name, $sid, $data, $post_id ) {
     $cftnum = $value = $valueLabel = $checked = $hideKey = $label = $code = $class = $style = $before = $after = $onclick = $ondblclick = $onkeydown = $onkeypress = $onkeyup = $onmousedown = $onmouseup = $onmouseover = $onmouseout = $onmousemove = $onfocus = $onblur = $onchange = $onselect = '';
     $hide = $addfield = $out = $out_key = $out_value = '';
     extract($data);
@@ -62,4 +62,6 @@ function make_checkbox( $name, $sid, $data, $post_id ) {
     return array($out, $out_key, $out_value);
 }
 
-list($out_all,$out_key,$out_value) = make_checkbox( $title, $parentSN, $data, $post_id );
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    list($out_all,$out_key,$out_value) = customize_fields_make_checkbox( $title, $parentSN, $data, $post_id );
+}

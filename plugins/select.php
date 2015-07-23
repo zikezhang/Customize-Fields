@@ -1,5 +1,5 @@
 <?php
-function make_select( $name, $sid, $data, $post_id ) {
+function customize_fields_make_select( $name, $sid, $data, $post_id ) {
     $cftnum = $values = $valueLabels = $default = $hideKey = $label = $code = $class = $style = $before = $after = $selectLabel = $multipleButton = $onclick = $ondblclick = $onkeydown = $onkeypress = $onkeyup = $onmousedown = $onmouseup = $onmouseover = $onmouseout = $onmousemove = $onfocus = $onblur = $onchange = $onselect = '';
     $hide = $addfield = $out = $out_key = $out_value = '';
     extract($data);
@@ -86,6 +86,10 @@ function make_select( $name, $sid, $data, $post_id ) {
     return array($out, $out_key, $out_value);
 }
 
-if ( isset($data['value']) ) $data['values'] = explode( '#', $data['value'] );
-if ( isset($data['valueLabel']) ) $data['valueLabels'] = explode( '#', $data['valueLabel'] );
-list($out_all,$out_key,$out_value) = make_select( $title, $parentSN, $data, $post_id );
+
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    if ( isset($data['value']) ) $data['values'] = explode( '#', $data['value'] );
+    if ( isset($data['valueLabel']) ) $data['valueLabels'] = explode( '#', $data['valueLabel'] );
+    list($out_all,$out_key,$out_value) = make_select( $title, $parentSN, $data, $post_id );
+}
+

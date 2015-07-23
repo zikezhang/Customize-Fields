@@ -55,14 +55,14 @@ if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
                     $post_types = explode(',', $_POST["custom_field_template_custom_post_type"][$i]);
                     $postypes = [];
                     foreach ($post_types as $post_type) {
-                        if (post_type_exists($post_type)) {
+                        if ($post_type != '' && post_type_exists($post_type)) {
                             $postypes[] = $post_type;
                             //$postypes .= ',';
                         } else {
 
                         }
                     }
-                    $post_type = implode(',',$post_type);
+                    $postypes = implode(',',$postypes);
                     $options['custom_fields'][$j]['custom_post_type'] = $postypes;
                 };
                 if (isset($_POST["custom_field_template_template_files"][$i])) {
@@ -74,7 +74,7 @@ if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
                             //$templates .= ',';
                         }
                     }
-                    $template_file = implode(',',$template_file);
+                    $templates = implode(',',$templates);
                     $options['custom_fields'][$j]['template_files'] = $templates;
                 };
                 if (isset($_POST["custom_field_template_disable"][$i])) {

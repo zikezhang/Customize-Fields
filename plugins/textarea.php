@@ -1,5 +1,5 @@
 <?php
-function make_textarea( $name, $sid, $data, $post_id ) {
+function customize_fields_make_textarea( $name, $sid, $data, $post_id ) {
     $cftnum = $rows = $cols = $tinyMCE = $htmlEditor = $mediaButton = $default = $hideKey = $label = $code = $class = $style = $wrap = $before = $after = $multipleButton = $mediaOffMedia = $mediaOffImage = $mediaOffVideo = $mediaOffAudio = $onclick = $ondblclick = $onkeydown = $onkeypress = $onkeyup = $onmousedown = $onmouseup = $onmouseover = $onmouseout = $onmousemove = $onfocus = $onblur = $onchange = $onselect = '';
     $hide = $addfield = $out = $out_key = $out_value = $media = $editorcontainer_class = '';
     extract($data);
@@ -195,4 +195,6 @@ function make_textarea( $name, $sid, $data, $post_id ) {
 
     return array($out, $out_key, $out_value);
 }
-list($out_all,$out_key,$out_value) = make_textarea( $title, $parentSN, $data, $post_id );
+if ( function_exists('current_user_can') && current_user_can('edit_plugins') ) {
+    list($out_all,$out_key,$out_value) = make_textarea( $title, $parentSN, $data, $post_id );
+}
